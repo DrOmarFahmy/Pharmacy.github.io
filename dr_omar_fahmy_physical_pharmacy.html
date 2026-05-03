@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DR. Omar Fahmy – Physical Pharmacy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep: #112240;
+    --card: #162a47;
+    --accent: #00c8ff;
+    --gold: #ffd700;
+    --green: #00e676;
+    --pink: #ff6eb4;
+    --red: #ff4444;
+    --text: #e8f4fd;
+    --muted: #8bacc8;
+    --border: rgba(0,200,255,0.18);
+    --glow: 0 0 20px rgba(0,200,255,0.25);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #0d1f3c 0%, #1a3a6e 50%, #0d1f3c 100%);
+    border-bottom: 2px solid var(--accent);
+    padding: 24px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(0,200,255,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-badge {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--accent), #0077b6);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 4px 16px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 5vw, 40px);
+    color: #fff;
+    letter-spacing: 1px;
+  }
+  header h1 span { color: var(--accent); }
+  header p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 6px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── NAV TABS ── */
+  nav {
+    display: flex;
+    overflow-x: auto;
+    background: var(--deep);
+    border-bottom: 1px solid var(--border);
+    padding: 0 16px;
+    gap: 4px;
+    scrollbar-width: thin;
+  }
+  nav button {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 14px 20px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all .25s;
+    white-space: nowrap;
+  }
+  nav button:hover { color: var(--accent); }
+  nav button.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+    background: rgba(0,200,255,0.06);
+  }
+
+  /* ── MAIN ── */
+  main { max-width: 960px; margin: 0 auto; padding: 32px 16px; }
+
+  /* ── SECTION CARDS ── */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--accent);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: var(--glow);
+    transition: transform .2s;
+  }
+  .card:hover { transform: translateY(-2px); }
+  .card h3 {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h3::before {
+    content: '';
+    display: inline-block;
+    width: 4px; height: 18px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+  .card p, .card li { font-size: 14.5px; line-height: 1.75; color: #cde0f5; }
+  .card ul { padding-left: 20px; }
+  .card li { margin-bottom: 6px; }
+  .tag {
+    display: inline-block;
+    background: rgba(0,200,255,0.15);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 10px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+  }
+  .tag.gold { background: rgba(255,215,0,0.12); color: var(--gold); border-color: var(--gold); }
+  .tag.green { background: rgba(0,230,118,0.12); color: var(--green); border-color: var(--green); }
+  .tag.pink { background: rgba(255,110,180,0.12); color: var(--pink); border-color: var(--pink); }
+  .formula {
+    background: rgba(0,200,255,0.08);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .trick-box {
+    background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(255,110,180,0.06));
+    border: 1px solid rgba(255,215,0,0.3);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 12px;
+  }
+  .trick-box strong { color: var(--gold); }
+
+  /* ── GRAPH SECTION ── */
+  .graph-wrap {
+    background: var(--deep);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .graph-title {
+    font-weight: 800;
+    color: var(--gold);
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+  svg text { font-family: 'Nunito', sans-serif; }
+
+  /* ── MCQ SECTION ── */
+  .mcq-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .mcq-header select {
+    background: var(--card);
+    border: 1px solid var(--accent);
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+  }
+  .score-badge {
+    background: linear-gradient(90deg, #00c8ff22, #ffd70022);
+    border: 1px solid var(--gold);
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--gold);
+  }
+  .question-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 18px;
+    transition: box-shadow .3s;
+  }
+  .question-card.answered { border-color: rgba(0,200,255,0.4); }
+  .q-num {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .q-text {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: #e8f4fd;
+    margin-bottom: 18px;
+    line-height: 1.6;
+  }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option-btn {
+    background: rgba(255,255,255,0.04);
+    border: 1.5px solid rgba(139,172,200,0.3);
+    border-radius: 10px;
+    padding: 12px 18px;
+    color: #cde0f5;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: all .2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .option-btn:hover:not(:disabled) {
+    background: rgba(0,200,255,0.1);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .option-btn .opt-letter {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(139,172,200,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: 12px;
+    flex-shrink: 0;
+    transition: all .2s;
+  }
+  .option-btn.correct {
+    background: linear-gradient(90deg, rgba(0,230,118,0.18), rgba(0,200,255,0.10));
+    border-color: var(--green);
+    color: #fff;
+    animation: correctPulse .5s ease;
+  }
+  .option-btn.correct .opt-letter {
+    background: var(--green);
+    color: #0a1628;
+  }
+  .option-btn.wrong {
+    background: rgba(255,68,68,0.12);
+    border-color: var(--red);
+    color: #ffaaaa;
+  }
+  .option-btn.wrong .opt-letter {
+    background: var(--red);
+    color: #fff;
+  }
+  .option-btn.show-correct {
+    background: linear-gradient(90deg, rgba(0,230,118,0.12), transparent);
+    border-color: rgba(0,230,118,0.5);
+  }
+  .option-btn:disabled { cursor: default; }
+  @keyframes correctPulse {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.03); box-shadow: 0 0 20px rgba(0,230,118,0.4); }
+    100% { transform: scale(1); }
+  }
+  .explanation {
+    background: rgba(0,200,255,0.06);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-top: 14px;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #a8d4f5;
+    display: none;
+  }
+  .explanation.show { display: block; animation: fadeIn .4s ease; }
+  @keyframes fadeIn { from { opacity:0; transform: translateY(-6px); } to { opacity:1; transform: none; } }
+  .explanation strong { color: var(--accent); }
+  .reset-btn {
+    background: linear-gradient(90deg, #00c8ff, #0077b6);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0;
+    transition: transform .2s, box-shadow .2s;
+    letter-spacing: 1px;
+  }
+  .reset-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,200,255,0.35); }
+
+  /* tabs */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* table */
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13.5px; }
+  th {
+    background: rgba(0,200,255,0.15);
+    color: var(--accent);
+    font-weight: 800;
+    padding: 10px 12px;
+    text-align: left;
+    border: 1px solid var(--border);
+  }
+  td {
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    color: #cde0f5;
+  }
+  tr:hover td { background: rgba(0,200,255,0.04); }
+
+  /* progress bar */
+  .progress-bar-wrap {
+    background: rgba(255,255,255,0.07);
+    border-radius: 8px;
+    height: 8px;
+    width: 180px;
+    overflow: hidden;
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--green));
+    border-radius: 8px;
+    transition: width .4s ease;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-badge">📚 Study Program</div>
+  <h1>DR. <span>Omar Fahmy</span></h1>
+  <p>Physical Pharmacy · Complete Lecture Notes & MCQ Bank</p>
+</header>
+
+<nav id="mainNav">
+  <button class="active" onclick="showPage('lec1','lec1-btn',this)">📘 Lecture 1: Rheology</button>
+  <button onclick="showPage('lec2','lec2-btn',this)">📗 Lecture 2: Adsorption</button>
+  <button onclick="showPage('graphs','graphs-btn',this)">📊 All Graphs</button>
+  <button onclick="showPage('mcq1','mcq1-btn',this)">🧠 MCQ – Rheology</button>
+  <button onclick="showPage('mcq2','mcq2-btn',this)">🧠 MCQ – Adsorption</button>
+</nav>
+
+<main>
+
+<!-- ════════════════ LECTURE 1 ════════════════ -->
+<div id="lec1" class="page active">
+  <div class="section-title">Chapter 1: Rheology</div>
+
+  <div class="card">
+    <h3>What is Rheology?</h3>
+    <p><strong style="color:var(--accent)">Rheology</strong> is the branch of physical pharmacy that studies the <em>flow of liquids</em> and <em>deformation of semisolids</em>.</p>
+    <p style="margin-top:10px">The word comes from Greek: <span class="tag">Rheo = to flow</span> <span class="tag">Logos = science</span></p>
+    <ul style="margin-top:12px">
+      <li>Applies to <strong>gases, liquids, and semi-solids</strong></li>
+      <li>Solids are <strong>completely resistant</strong> to flow and deformation</li>
+    </ul>
+    <div class="trick-box"><strong>🔑 Trick:</strong> Think of honey vs water on a glass — honey flows slowly = high viscosity. Water flows fast = low viscosity.</div>
+  </div>
+
+  <div class="card">
+    <h3>Viscosity & Fluidity</h3>
+    <ul>
+      <li><strong style="color:var(--accent)">Viscosity (η)</strong> = resistance of a fluid to flow. Unit: <em>Poise</em> or <em>centipoise (cp)</em></li>
+      <li><strong style="color:var(--gold)">Fluidity (φ)</strong> = ability to flow = reciprocal of viscosity</li>
+    </ul>
+    <div class="formula">φ = 1/η &nbsp;&nbsp;&nbsp; η = F/G</div>
+    <p>1 Poise = 100 centipoise (cp). The shearing force needed to produce velocity of 1 cm/sec between two layers each 1 cm² in area and 1 cm apart.</p>
+    <div class="trick-box"><strong>🔑 Trick:</strong> Higher viscosity = harder to flow. Lower fluidity = thicker liquid.</div>
+  </div>
+
+  <div class="card">
+    <h3>Applications of Rheology</h3>
+    <div style="margin-bottom:8px"><span class="tag">General</span></div>
+    <ul>
+      <li>Paints, Inks, Road-building materials, Dairy products</li>
+    </ul>
+    <div style="margin:10px 0 8px"><span class="tag gold">Pharmaceutical</span></div>
+    <ul>
+      <li>Solutions, suspensions, emulsions, cosmetics</li>
+      <li>Formulation of pastes, suppositories, tablet coatings</li>
+      <li>Creams, pastes, and lotions — batch-to-batch consistency</li>
+    </ul>
+    <div style="margin:10px 0 8px"><span class="tag green">Industrial</span></div>
+    <ul>
+      <li>Mixing & flow of materials</li>
+      <li>Packaging into containers</li>
+      <li>Pouring liquids from a bottle</li>
+      <li>Extrusion of ointments/creams from tubes</li>
+      <li>Passage of liquid from ampoule through syringe needle</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Newton's Law of Flow</h3>
+    <p>If a block of liquid consists of parallel plates and force <strong>F'</strong> is applied to surface area <strong>A</strong>:</p>
+    <ul style="margin:12px 0">
+      <li><strong>Shearing Stress (F)</strong> = F'/A (dyne/cm²) — force per unit area</li>
+      <li><strong>Shearing Rate (G)</strong> = dv/dr (sec⁻¹) — velocity difference between layers</li>
+    </ul>
+    <div class="formula">F'/A = η × dv/dr &nbsp;&nbsp; → &nbsp;&nbsp; η = F/G</div>
+    <ul>
+      <li><strong>Dynamic viscosity (η)</strong>: resistance to flow = F/G. Unit: poise (dyne·sec·cm⁻²)</li>
+      <li><strong>Kinematic viscosity (s)</strong> = η/ρ. Unit: Stoke, centistoke</li>
+      <li><strong>Relative viscosity (ηr)</strong> = η/η₀ (ratio to water) — unitless</li>
+      <li><strong>Specific viscosity (ηsp)</strong> = ηr − 1 — unitless</li>
+    </ul>
+    <div class="trick-box"><strong>🔑 Exam Trick:</strong> For Newtonian liquids — single-point measurement is ENOUGH to find viscosity. This is a common exam question!</div>
+  </div>
+
+  <div class="card">
+    <h3>Viscosity & Temperature (Arrhenius Equation)</h3>
+    <p>Temperature increase → viscosity DECREASES for liquids.</p>
+    <div class="formula">η = A · e<sup>Ev/RT</sup></div>
+    <ul style="margin-top:10px">
+      <li><strong>A</strong> = constant depending on molecular weight & molar volume</li>
+      <li><strong>Ev</strong> = activation energy required to initiate flow</li>
+      <li><strong>R</strong> = gas constant (0.082057 L·atm·mol⁻¹·K⁻¹)</li>
+      <li><strong>T</strong> = temperature in Kelvin (K = °C + 273)</li>
+    </ul>
+    <div class="trick-box"><strong>🔑 Trick:</strong> Higher temperature → molecules have more energy → flow more easily → viscosity drops.</div>
+  </div>
+
+  <div class="card">
+    <h3>Newtonian vs Non-Newtonian Systems</h3>
+    <table>
+      <tr><th>Feature</th><th>Newtonian</th><th>Non-Newtonian</th></tr>
+      <tr><td>Viscosity</td><td>Constant at all shear rates</td><td>Changes with shear rate</td></tr>
+      <tr><td>F vs G graph</td><td>Straight line through origin</td><td>Curved or offset</td></tr>
+      <tr><td>Single measurement</td><td>Sufficient</td><td>Not sufficient</td></tr>
+      <tr><td>Examples</td><td>Water, glycerin, ethanol, chloroform, olive oil, castor oil, diluted suspension</td><td>Suspensions, creams, ointments, gums</td></tr>
+    </table>
+    <div class="trick-box"><strong>🔑 Trick:</strong> Newtonian = straight line through origin = one test is enough. Non-Newtonian = curve or shifted = need multiple points.</div>
+  </div>
+
+  <div class="card">
+    <h3>1) Plastic Flow (Bingham Flow)</h3>
+    <span class="tag pink">Non-Newtonian</span><span class="tag">Shear-Thinning</span>
+    <ul style="margin-top:12px">
+      <li>Materials = <strong>Bingham Bodies</strong> (named after Bingham, the first investigator)</li>
+      <li>Rheogram does NOT start from origin — starts slightly curved, then becomes straight</li>
+      <li>The x-axis intercept of the straight part = <strong>Yield Value (f)</strong> or <strong>Bingham Yield Value</strong></li>
+      <li>Flow only occurs when stress exceeds the yield value</li>
+    </ul>
+    <div class="formula">U = (F − f) / G</div>
+    <ul>
+      <li><strong>U</strong> = plastic viscosity</li>
+      <li><strong>f</strong> = yield value</li>
+      <li><strong>Mobility</strong> = slope of straight part (like fluidity in Newtonian)</li>
+    </ul>
+    <p style="margin-top:10px"><strong>Why yield value?</strong> Flocculated suspensions have particles linked by van der Waals forces. You need enough force to break these bonds before flow begins.</p>
+    <div class="trick-box"><strong>🔑 Trick:</strong> Higher flocculation → higher yield value. Plastic materials are shear-thinning → more shear = more mobility = lower viscosity. Classic example: <strong>flocculated suspension</strong>.</div>
+  </div>
+
+  <div class="card">
+    <h3>2) Pseudo-plastic Flow</h3>
+    <span class="tag pink">Non-Newtonian</span><span class="tag">Shear-Thinning</span>
+    <ul style="margin-top:12px">
+      <li>Exhibited by <strong>polymers in solution</strong>: gum tragacanth, sodium alginate, methylcellulose (MC), sodium CMC</li>
+      <li>Rheogram starts from origin (or very near it) — no yield value, no straight line</li>
+      <li>Viscosity CANNOT be expressed by a single value</li>
+      <li>As shear increases → long-chain molecules align in flow direction → viscosity decreases</li>
+    </ul>
+    <div class="formula">F = η'·G<sup>N</sup> &nbsp;&nbsp; → &nbsp;&nbsp; log G = N·log F − log η'</div>
+    <ul style="margin-top:10px">
+      <li><strong>η'</strong> = viscosity coefficient</li>
+      <li><strong>N</strong> = exponent: equals <strong>1</strong> for Newtonian, <strong>&gt;1</strong> for Pseudo-plastic</li>
+    </ul>
+    <div class="trick-box"><strong>🔑 Trick:</strong> N=1 → Newtonian. N&gt;1 → Pseudo-plastic. N&lt;1 → Dilatant. Remember: Martin's equation!</div>
+  </div>
+
+  <div class="card">
+    <h3>3) Dilatant Flow</h3>
+    <span class="tag pink">Non-Newtonian</span><span class="tag gold">Shear-Thickening</span>
+    <ul style="margin-top:12px">
+      <li>These systems <strong>increase in volume</strong> when shear stress is applied ("dilate")</li>
+      <li>Viscosity <strong>increases</strong> with shear force → opposite of plastic/pseudo-plastic!</li>
+      <li>When stress is removed → system returns to original fluidity (reversible)</li>
+      <li>Rheogram starts from origin, no yield value, no straight line</li>
+    </ul>
+    <p style="margin-top:10px"><strong>Mechanism:</strong> At rest → particles are closely packed, vehicle fills voids → system can flow.<br>
+    Under shear → particles expand/dilate → increased void volume → vehicle no longer fills voids → particles no longer lubricated → resistance increases → sets up as firm paste.</p>
+    <div class="formula">N &lt; 1 (in Martin's equation F = η'·G<sup>N</sup>)</div>
+    <p style="margin-top:10px"><strong>Classic example:</strong> Deflocculated suspension with ≥50% solids.</p>
+    <div class="trick-box"><strong>🔑 Exam Question — "Why use high-speed mixers for dilatant materials?"</strong> Because dilatant systems thicken under shear. The particles have more time to separate and lubricate at high speed, preventing the paste from setting up solid. Must be handled with care during processing!</div>
+  </div>
+
+  <div class="card">
+    <h3>Thixotropy (Time-Dependent Behavior)</h3>
+    <span class="tag">Reversible</span><span class="tag gold">Time-dependent</span>
+    <ul style="margin-top:12px">
+      <li>Term first used by <strong>Peterfi (1927)</strong> — Greek: thixis (stirring) + trepo (changing)</li>
+      <li>Definition: <strong>Reversible isothermal transformation of gel → sol → gel</strong></li>
+      <li>Shear stress applied → gel becomes sol. Stress removed → sol returns to gel (takes time)</li>
+      <li>The up-curve and down-curve are NOT superimposed → form a <strong>hysteresis loop</strong></li>
+      <li>Wider hysteresis loop = more time & thermal changes needed for recovery</li>
+    </ul>
+    <p style="margin-top:10px"><strong>Examples:</strong> Suspension, emulsion, microcrystalline cellulose gel</p>
+
+    <p style="margin-top:14px; font-weight:700; color:var(--gold)">Anti-Thixotropy (Irreversible Thixotropy):</p>
+    <p>When shear is applied → gel → sol, but when stress removed → sol <strong>NEVER</strong> returns to gel.<br>
+    Example: gel from high M.wt. polysaccharides</p>
+
+    <div class="trick-box">
+      <strong>🔑 Clinical Application:</strong> Penicillin G suspension 40–70% w/v:<br>
+      Dissolve powder in water (gel) → Shake & draw into syringe (sol) → Inject into muscle (returns to gel) → Depot action = slow drug release 💉
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Viscometers — Determining Rheological Properties</h3>
+    <p style="margin-bottom:14px">Choice depends on whether the system is Newtonian or Non-Newtonian.</p>
+    <table>
+      <tr><th>Viscometer</th><th>Type</th><th>Principle</th><th>Equation</th></tr>
+      <tr><td><strong>Ostwald's U-tube (Capillary)</strong></td><td>Newtonian only</td><td>Liquid flows through capillary by gravity</td><td>η₁/η₂ = ρ₁t₁/ρ₂t₂</td></tr>
+      <tr><td><strong>Falling Sphere (Höppler)</strong></td><td>Newtonian (0.5–200,000 poise, >30 sec)</td><td>Stoke's law — ball falls through liquid</td><td>η = d²g(ρs−ρf)/18v &nbsp; OR &nbsp; η = t(Sb−Sf)B</td></tr>
+      <tr><td><strong>Rotational – Cup & Bob</strong></td><td>Non-Newtonian</td><td>Torque ∝ rpm</td><td>η = KT/Ω</td></tr>
+      <tr><td><strong>Rotational – Cone & Plate</strong></td><td>Non-Newtonian, semi-solids</td><td>Torque ∝ rpm, small sample</td><td>η = CT/V</td></tr>
+    </table>
+    <div class="trick-box">
+      <strong>🔑 Cup & Bob Types:</strong><br>
+      • <strong>Couette type</strong>: Cup rotates → sample rotates → bob moves. Example: <em>MacMichael viscometer</em><br>
+      • <strong>Searle type</strong>: Bob rotates → rpm measured by sensors in cup. Example: <em>Brookfield / Roto-visco viscometer</em><br><br>
+      <strong>Cone & Plate Advantages vs Cup & Bob:</strong><br>
+      Cone & Plate: small sample, easy cleaning, constant shear (small space), better for semi-solids.<br>
+      Cup & Bob: large sample needed, difficult cleaning, non-uniform shear (large space), frictional heat issue.
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ LECTURE 2 ════════════════ -->
+<div id="lec2" class="page">
+  <div class="section-title">Chapter 2: Adsorption</div>
+
+  <div class="card">
+    <h3>Key Definitions</h3>
+    <ul>
+      <li><strong style="color:var(--accent)">Adsorption</strong>: Accumulation of a substance at the <em>surface or interface</em> between two immiscible phases → forms a molecular/atomic film.</li>
+      <li><strong style="color:var(--gold)">Adsorbent</strong>: The solid on which adsorption occurs (porous material with large specific surface, g/m²)</li>
+      <li><strong style="color:var(--pink)">Adsorbate</strong>: The substance (gas, vapor, liquid, or solid) that gets adsorbed</li>
+      <li><strong>Desorption</strong>: The reverse process — adsorbate leaves the surface</li>
+      <li><strong>Sorption</strong>: Combined term for both adsorption + absorption</li>
+    </ul>
+    <div class="trick-box">
+      <strong>🔑 Adsorption vs Absorption:</strong><br>
+      Adsorption = surface attachment (drug at receptor site, membrane surface)<br>
+      Absorption = entering bulk phase (drug absorbed by blood, tissues, organs)
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Why Does Adsorption Happen?</h3>
+    <p>Surface atoms of a solid have <strong>bonding deficiency</strong> — they are not completely surrounded by other atoms. So they bond whatever is available to lower surface energy.</p>
+    <p style="margin-top:10px">Two types of forces lead to two types of adsorption:</p>
+  </div>
+
+  <div class="card">
+    <h3>Physisorption vs Chemisorption</h3>
+    <table>
+      <tr><th>Feature</th><th>Physisorption</th><th>Chemisorption</th></tr>
+      <tr><td>Forces</td><td>van der Waals (intermolecular)</td><td>Valence / chemical bonds</td></tr>
+      <tr><td>Reversibility</td><td>Reversible</td><td>Irreversible</td></tr>
+      <tr><td>Rate</td><td>Rapid</td><td>Slow (increases with temp)</td></tr>
+      <tr><td>Heat of adsorption</td><td>Low</td><td>High</td></tr>
+      <tr><td>Selectivity</td><td>Non-specific</td><td>Specific</td></tr>
+      <tr><td>Layer</td><td>Multi-molecular layer</td><td>Mono-molecular layer</td></tr>
+      <tr><td>Temperature effect</td><td>Inversely related (exothermic)</td><td>Increases with temperature</td></tr>
+      <tr><td>Saturable?</td><td>No (non-saturable)</td><td>Yes</td></tr>
+      <tr><td>Examples</td><td>Activated charcoal adsorbing toxins, gases, decolorization</td><td>Bentonite clay cation exchange, water deionization with resin</td></tr>
+    </table>
+    <div class="trick-box">
+      <strong>🔑 Trick:</strong> Physisorption = Physical = Weak = Reversible = Many layers.<br>
+      Chemisorption = Chemical = Strong = Irreversible = One layer.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Factors Affecting Adsorption</h3>
+    <ul>
+      <li><strong>1. Surface area of solid:</strong> More surface area → more adsorption. Increased by: size reduction (finely divided particles) or porosity (porous material has more surface)</li>
+      <li><strong>2. Pressure (gas):</strong> Amount adsorbed increases with gas pressure</li>
+      <li><strong>3. Solute concentration:</strong> Amount adsorbed (x/m) is directly proportional to concentration</li>
+      <li><strong>4. Temperature:</strong> Physisorption is exothermic → higher temp → less adsorption. Chemisorption increases with temperature (needs activation energy Ea)</li>
+      <li><strong>5. Solubility of adsorbate (Lundelius' Rule):</strong> Higher solubility → less adsorption (adsorbate prefers to stay in solution). Example: methylene blue adsorption from aqueous solution &gt; ethanol solution</li>
+      <li><strong>6. pH:</strong> pH affects solute dissociation. Non-dissociated molecules adsorb better than ions. Amphiphilic compounds adsorb most at their isoelectric point (minimum solubility)</li>
+    </ul>
+    <div class="trick-box">
+      <strong>🔑 Lundelius' Rule:</strong> The more soluble the adsorbate, the LESS it adsorbs. Think of it this way: if it loves the solvent, why would it stick to the surface?
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Adsorption Isotherms</h3>
+    <p>An <strong>isotherm</strong> = a quantitative relationship between solution concentration of the sorbate and its uptake by adsorbent, measured at <em>constant temperature</em>.</p>
+    <p style="margin-top:10px; font-weight:700; color:var(--gold)">3 Main Types:</p>
+
+    <div style="margin-top:14px; padding:14px; border-radius:10px; border:1px solid var(--border); background:rgba(0,200,255,0.04)">
+      <p><span class="tag">Type I — Langmuir</span></p>
+      <ul style="margin-top:8px">
+        <li>Characterized by a <strong>horizontal plateau</strong> of limited value after rapid initial adsorption</li>
+        <li>For <strong>microporous materials</strong> — no multilayer adsorption</li>
+        <li>Represents <strong>chemisorption</strong></li>
+        <li>Example: water and organic vapors on molecular sieves</li>
+        <li><strong>Langmuir assumptions:</strong> only monolayer, uniform surface with equal active sites, adsorption is localized, adsorbate molecules don't interact, heat of adsorption is independent of surface coverage</li>
+      </ul>
+    </div>
+
+    <div style="margin-top:12px; padding:14px; border-radius:10px; border:1px solid var(--border); background:rgba(255,215,0,0.04)">
+      <p><span class="tag gold">Type II — Freundlich & BET</span></p>
+      <ul style="margin-top:8px">
+        <li>Describes <strong>physical adsorption (physisorption)</strong></li>
+        <li>Monolayer at low pressures → multilayer at higher pressures near saturation</li>
+        <li>Observed in <strong>macro-porous solids</strong> (pore diameter &gt;50 nm)</li>
+        <li>Example: vapors of polar media on molecular sieves</li>
+      </ul>
+    </div>
+
+    <div class="formula" style="margin-top:16px">
+      Freundlich: Y = x/m = KC<sup>1/n</sup> = KP<sup>1/n</sup><br>
+      Log form: log Y = log K + (1/n) log C<br>
+      Plot log Y vs log C → slope = 1/n, intercept = log K
+    </div>
+
+    <div style="margin-top:12px; padding:14px; border-radius:10px; border:1px solid var(--border); background:rgba(0,230,118,0.04)">
+      <p><span class="tag green">BET (Brunauer–Emmett–Teller)</span></p>
+      <ul style="margin-top:8px">
+        <li>Considers <strong>multilayers</strong> of gas adsorbed</li>
+        <li>Sigmoidal shape (belongs to Type II)</li>
+        <li>Occurs when gases undergo physical adsorption onto non-porous solid → monolayer first, then multilayer</li>
+      </ul>
+    </div>
+    <div class="trick-box"><strong>🔑 Trick:</strong> Langmuir = Mono-layer = Chemisorption (L = L). Freundlich & BET = Multi-layer = Physisorption.</div>
+  </div>
+
+  <div class="card">
+    <h3>Pharmaceutical Applications of Adsorption</h3>
+    <ul>
+      <li><strong>Decolorizing agent:</strong> activated charcoal removes colored impurities from solutions</li>
+      <li><strong>Desiccants and drying agents:</strong> adsorb moisture</li>
+      <li><strong>Determination of surface area of powders:</strong> using BET isotherm</li>
+      <li><strong>Adsorption chromatography:</strong> separation of compounds</li>
+      <li><strong>Drug formulation:</strong> drug adsorption on excipients can affect release; activated charcoal in GI tract for poisoning</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ════════════════ GRAPHS ════════════════ -->
+<div id="graphs" class="page">
+  <div class="section-title">📊 All Graphs Explained</div>
+
+  <!-- Graph 1: Newtonian -->
+  <div class="graph-wrap">
+    <div class="graph-title">Graph 1: Newtonian Rheogram (F vs G)</div>
+    <svg viewBox="0 0 420 260" width="100%" style="max-width:420px; display:block; margin:0 auto;">
+      <defs>
+        <marker id="arrow1" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+          <polygon points="0 0, 7 3.5, 0 7" fill="#8bacc8"/>
+        </marker>
+      </defs>
+      <!-- axes -->
+      <line x1="50" y1="210" x2="380" y2="210" stroke="#8bacc8" stroke-width="1.5" marker-end="url(#arrow1)"/>
+      <line x1="50" y1="210" x2="50" y2="30" stroke="#8bacc8" stroke-width="1.5" marker-end="url(#arrow1)"/>
+      <!-- Newtonian line -->
+      <line x1="50" y1="210" x2="330" y2="50" stroke="#00c8ff" stroke-width="2.5"/>
+      <!-- labels -->
+      <text x="200" y="235" fill="#8bacc8" font-size="13" text-anchor="middle">Shearing Stress (F)</text>
+      <text x="20" y="130" fill="#8bacc8" font-size="13" text-anchor="middle" transform="rotate(-90,20,130)">Shear Rate (G)</text>
+      <text x="340" y="42" fill="#00c8ff" font-size="12" font-weight="bold">Newtonian</text>
+      <text x="190" y="118" fill="#ffd700" font-size="12">slope = φ = 1/η</text>
+      <!-- origin marker -->
+      <circle cx="50" cy="210" r="4" fill="#00e676"/>
+      <text x="38" y="228" fill="#00e676" font-size="10">Origin</text>
+    </svg>
+    <p style="font-size:13.5px; color:#a8d4f5; margin-top:12px">
+      <strong style="color:var(--accent)">Key points:</strong> Straight line passing through the <strong>origin</strong>. Slope = fluidity (φ = 1/η). The relationship between F and G is directly proportional and constant. One measurement is enough to define the flow. Examples: water, glycerin, oils.
+    </p>
+  </div>
+
+  <!-- Graph 2: Viscosity vs Shear Rate Newtonian -->
+  <div class="graph-wrap">
+    <div class="graph-title">Graph 2: Viscosity vs Shear Rate — Newtonian Systems</div>
+    <svg viewBox="0 0 420 220" width="100%" style="max-width:420px; display:block; margin:0 auto;">
+      <defs>
+        <marker id="arrow2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+          <polygon points="0 0, 7 3.5, 0 7" fill="#8bacc8"/>
+        </marker>
+      </defs>
+      <line x1="50" y1="180" x2="380" y2="180" stroke="#8bacc8" stroke-width="1.5" marker-end="url(#arrow2)"/>
+      <line x1="50" y1="180" x2="50" y2="30" stroke="#8bacc8" stroke-width="1.5" marker-end="url(#arrow2)"/>
+      <!-- flat horizontal line for Newtonian viscosity -->
+      <line x1="50" y1="110" x2="360" y2="110" stroke="#00c8ff" stroke-width="2.5"/>
+      <text x="200" y="200" fill="#8bacc8" font-size="13" text-anchor="middle">Shear Rate (G)</text>
+      <text x="18" y="110" fill="#8bacc8" font-size="13" text-anchor="middle" transform="rotate(-90,18,110)">Viscosity (η)</text>
+      <text x="370" y="107" fill="#00c8ff" font-size="12">η = const</text>
+      <text x="200" y="80" fill="#ffd700" font-size="12" text-anchor="middle">Constant horizontal line = Newtonian</text>
+    </svg>
+    <p style="font-size:13.5px; color:#a8d4f5; margin-top:12px">
+      For Newtonian liquids, viscosity does NOT change with shear rate — it stays constant (flat horizontal line). This is why single-point measurement is sufficient.
+    </p>
+  </div>
+
+  <!-- Graph 3: Non-Newtonian Rheograms -->
+  <div class="graph-wrap">
+    <div class="graph-title">Graph 3: Non-Newtonian Rheograms (All Types on One Plot)</div>
+    <svg viewBox="0 0 420 280" width="100%" style="max-width:420px; display:block; margin:0 auto;">
+      <defs>
+        <marker id="arrow3" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+          <polygon points="0 0, 7 3.5, 0 7" fill="#8bacc8"/>
+        </marker>
+      </defs>
+      <line x1="50" y1="230" x2="390" y2="230" stroke="#8bacc8" stroke-width="1.5" marker-end="url(#arrow3)"/>
+      <line x1="50" y1="230" x2="50" y2="30" stroke="#8bacc8" stroke-width="1.5" marker-end="url(#arrow3)"/>
+      <!-- Newtonian reference -->
+      <line x1="50" y1="230" x2="340" y2="70" stroke="#8bacc8" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.5"/>
+      <text x="345" y="65" fill="#8bacc8" font-size="10" opacity="0.7">Newtonian</text>
+      <!-- Plastic (Bingham) - offset from x-axis -->
+      <path d="M 90 230 Q 120 220 150 200 L 340 80" fill="none" stroke="#ff6eb4" stroke-width="2.5"/>
+      <line x1="50" y1="230" x2="90" y2="230" stroke="#ff6eb4" stroke-width="2" stroke-dasharray="3,3" opacity="0.5"/>
+      <circle cx="90" cy="230" r="4" fill="#ff6eb4"/>
+      <text x="95" y="247" fill="#ff6eb4" font-size="10">f (yield value)</text>
+      <text x="350" y="75" fill="#ff6eb4" font-size="11" font-weight="bold">Plastic</text>
+      <!-- Pseudo-plastic - concave -->
+      <path d="M 50 230 Q 120 200 200 150 Q 280 110 350 90" fill="none" stroke="#00e676" stroke-width="2.5"/>
+      <text x="355" y="88" fill="#00e676" font-size="11" font-weight="bold">Pseudo-plastic</text>
+      <!-- Dilatant - convex -->
+      <path d="M 50 230 Q 150 215 250 180 Q 310 155 350 120" fill="none" stroke="#ffd700" stroke-width="2.5"/>
+      <text x="355" y="118" fill="#ffd700" font-size="11" font-weight="bold">Dilatant</text>
+      <!-- axis labels -->
+      <text x="210" y="258" fill="#8bacc8" font-size="13" text-anchor="middle">Shearing Stress (F)</text>
+      <text x="18" y="140" fill="#8bacc8" font-size="13" text-anchor="middle" transform="rotate(-90,18,140)">Shear Rate (G)</text>
+    </svg>
+    <p style="font-size:13.5px; color:#a8d4f5; margin-top:12px">
+      <strong style="color:#ff6eb4">Plastic (Bingham):</strong> Does NOT start at origin. Has a yield value (f) on F-axis. Then straight line.<br>
+      <strong style="color:#00e676">Pseudo-plastic:</strong> Starts at/near origin. Concave curve. Higher shear → lower viscosity (shear thinning).<br>
+      <strong style="color:#ffd700">Dilatant:</strong> Starts at origin. Convex curve. Higher shear → higher viscosity (shear thickening).
+    </p>
+  </div>
+
+  <!-- Graph 4: Thixotropy Hysteresis Loop -->
+  <div class="graph-wrap">
+    <div class="graph-title">Graph 4: Thixotropy — Hysteresis Loop</div>
+    <svg viewBox="0 0 420 270" width="100%" style="max-width:420px; display:block; margin:0 auto;">
+      <defs>
+        <marker id="arrow4" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+          <polygon points="0 0, 7 3.5, 0 7" fill="#8bacc8"/>
+        </marker>
+        <marker id="arrowUp" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+          <polygon points="0 0, 7 3.5, 0 7" fill="#00c8ff"/>
+        </marker>
+        <marker id="arrowDown" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+          <polygon points="0 0, 7 3.5, 0 7" fill="#ff6eb4"/>
+        </marker>
+      </defs>
+      <line x1="50" y1="220" x2="380" y2="220" stroke="#8bacc8" stroke-width="1.5" marker-end="url(#arrow4)"/>
+      <line x1="50" y1="220" x2="50" y2="30" stroke="#8bacc8" stroke-width="1.5" marker-end="url(#arrow4)"/>
+      <!-- Upcurve -->
+      <path d="M 50 220 Q 160 195 280 120 Q 320 100 350 70" fill="none" stroke="#00c8ff" stroke-width="2.5" marker-end="url(#arrowUp)"/>
+      <!-- Downcurve (below upcurve) -->
+      <path d="M 350 70 Q 300 110 230 155 Q 160 195 50 220" fill="none" stroke="#ff6eb4" stroke-width="2.5" stroke-dasharray="6,3" marker-end="url(#arrowDown)"/>
+      <!-- Shaded area -->
+      <path d="M 50 220 Q 160 195 280 120 Q 320 100 350 70 Q 300 110 230 155 Q 160 195 50 220" fill="rgba(0,200,255,0.07)" stroke="none"/>
+      <!-- Labels -->
+      <text x="140" y="145" fill="#00c8ff" font-size="12">Up-curve</text>
+      <text x="130" y="185" fill="#ff6eb4" font-size="12">Down-curve</text>
+      <text x="180" y="168" fill="rgba(255,255,255,0.5)" font-size="11" text-anchor="middle">Hysteresis Loop</text>
+      <text x="210" y="244" fill="#8bacc8" font-size="13" text-anchor="middle">Shearing Stress (F)</text>
+      <text x="18" y="130" fill="#8bacc8" font-size="13" text-anchor="middle" transform="rotate(-90,18,130)">Shear Rate (G)</text>
+    </svg>
+    <p style="font-size:13.5px; color:#a8d4f5; margin-top:12px">
+      The <strong style="color:var(--accent)">up-curve</strong> (increasing shear) and <strong style="color:#ff6eb4">down-curve</strong> (decreasing shear) are NOT superimposed → they form a <strong>hysteresis loop</strong>. The area of the loop represents the energy needed to break down the structure. <strong>Wider loop = more time needed for recovery = more thixotropic.</strong>
+    </p>
+  </div>
+
+  <!-- Graph 5: Freundlich Isotherm -->
+  <div class="graph-wrap">
+    <div class="graph-title">Graph 5: Freundlich Adsorption Isotherm (Log-Log Plot)</div>
+    <svg viewBox="0 0 420 250" width="100%" style="max-width:420px; display:block; margin:0 auto;">
+      <defs>
+        <marker id="arrow5" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+          <polygon points="0 0, 7 3.5, 0 7" fill="#8bacc8"/>
+        </marker>
+      </defs>
+      <line x1="50" y1="210" x2="380" y2="210" stroke="#8bacc8" stroke-width="1.5" marker-end="url(#arrow5)"/>
+      <line x1="50" y1="210" x2="50" y2="30" stroke="#8bacc8" stroke-width="1.5" marker-end="url(#arrow5)"/>
+      <!-- Straight line on log-log plot -->
+      <line x1="70" y1="190" x2="350" y2="65" stroke="#ffd700" stroke-width="2.5"/>
+      <!-- Slope indicator -->
+      <line x1="200" y1="127" x2="280" y2="127" stroke="#ff6eb4" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <line x1="280" y1="127" x2="280" y2="91" stroke="#ff6eb4" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="240" y="142" fill="#ff6eb4" font-size="11">Slope = 1/n</text>
+      <!-- intercept -->
+      <circle cx="70" cy="190" r="4" fill="#00e676"/>
+      <text x="55" y="207" fill="#00e676" font-size="10">log K</text>
+      <text x="360" y="60" fill="#ffd700" font-size="12" font-weight="bold">Freundlich</text>
+      <text x="215" y="228" fill="#8bacc8" font-size="13" text-anchor="middle">log C (or log P)</text>
+      <text x="16" y="130" fill="#8bacc8" font-size="13" text-anchor="middle" transform="rotate(-90,16,130)">log Y (log x/m)</text>
+    </svg>
+    <p style="font-size:13.5px; color:#a8d4f5; margin-top:12px">
+      Plot log Y vs log C gives a <strong>straight line</strong>. Slope = 1/n. Y-intercept = log K. This is only valid at <strong>low to moderate</strong> concentrations/pressures — NOT at high values. Represents physisorption with multilayer.
+    </p>
+  </div>
+
+  <!-- Graph 6: Langmuir Isotherm Type I -->
+  <div class="graph-wrap">
+    <div class="graph-title">Graph 6: Langmuir Isotherm (Type I) — Chemisorption</div>
+    <svg viewBox="0 0 420 250" width="100%" style="max-width:420px; display:block; margin:0 auto;">
+      <defs>
+        <marker id="arrow6" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+          <polygon points="0 0, 7 3.5, 0 7" fill="#8bacc8"/>
+        </marker>
+      </defs>
+      <line x1="50" y1="210" x2="380" y2="210" stroke="#8bacc8" stroke-width="1.5" marker-end="url(#arrow6)"/>
+      <line x1="50" y1="210" x2="50" y2="30" stroke="#8bacc8" stroke-width="1.5" marker-end="url(#arrow6)"/>
+      <!-- Langmuir curve - rises steeply then levels off -->
+      <path d="M 50 210 Q 90 160 130 110 Q 170 75 210 65 Q 260 55 310 52 Q 340 51 360 51" fill="none" stroke="#00c8ff" stroke-width="2.5"/>
+      <!-- horizontal plateau line -->
+      <line x1="50" y1="51" x2="365" y2="51" stroke="#ffd700" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.5"/>
+      <text x="370" y="55" fill="#ffd700" font-size="10">Saturation</text>
+      <text x="360" y="47" fill="#00c8ff" font-size="12" font-weight="bold">Langmuir</text>
+      <text x="70" y="130" fill="#00e676" font-size="11">Rapid initial rise</text>
+      <text x="215" y="228" fill="#8bacc8" font-size="13" text-anchor="middle">Concentration / Pressure</text>
+      <text x="16" y="130" fill="#8bacc8" font-size="13" text-anchor="middle" transform="rotate(-90,16,130)">Amount Adsorbed (x/m)</text>
+    </svg>
+    <p style="font-size:13.5px; color:#a8d4f5; margin-top:12px">
+      <strong>Type I / Langmuir:</strong> Rapid initial adsorption → horizontal plateau (saturation). Represents <strong>monolayer chemisorption</strong> on microporous materials. Once all active sites are filled, no more adsorption occurs. Example: water vapor on molecular sieves.
+    </p>
+  </div>
+
+  <!-- Graph 7: BET Isotherm Type II -->
+  <div class="graph-wrap">
+    <div class="graph-title">Graph 7: BET Isotherm (Type II) — Physisorption</div>
+    <svg viewBox="0 0 420 250" width="100%" style="max-width:420px; display:block; margin:0 auto;">
+      <defs>
+        <marker id="arrow7" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+          <polygon points="0 0, 7 3.5, 0 7" fill="#8bacc8"/>
+        </marker>
+      </defs>
+      <line x1="50" y1="210" x2="380" y2="210" stroke="#8bacc8" stroke-width="1.5" marker-end="url(#arrow7)"/>
+      <line x1="50" y1="210" x2="50" y2="30" stroke="#8bacc8" stroke-width="1.5" marker-end="url(#arrow7)"/>
+      <!-- BET sigmoidal curve -->
+      <path d="M 50 210 Q 80 195 110 180 Q 140 165 160 150 Q 185 136 200 128 Q 215 120 230 115 Q 260 108 290 100 Q 310 95 330 82 Q 345 70 355 50" fill="none" stroke="#00e676" stroke-width="2.5"/>
+      <text x="358" y="47" fill="#00e676" font-size="12" font-weight="bold">BET (Type II)</text>
+      <!-- Annotations -->
+      <text x="115" y="176" fill="#ffd700" font-size="10">Monolayer</text>
+      <text x="280" y="95" fill="#ff6eb4" font-size="10">Multilayer</text>
+      <text x="215" y="228" fill="#8bacc8" font-size="13" text-anchor="middle">Relative Pressure (P/P₀)</text>
+      <text x="16" y="130" fill="#8bacc8" font-size="13" text-anchor="middle" transform="rotate(-90,16,130)">Amount Adsorbed (x/m)</text>
+    </svg>
+    <p style="font-size:13.5px; color:#a8d4f5; margin-top:12px">
+      <strong>Type II / BET:</strong> Sigmoidal shape. First a monolayer forms, then multilayers build up near saturation. Represents <strong>physisorption</strong> on macro-porous solids (pore diameter &gt;50 nm). Used to determine <strong>surface area of powders</strong> in pharmacy.
+    </p>
+  </div>
+</div>
+
+<!-- ════════════════ MCQ 1 – RHEOLOGY ════════════════ -->
+<div id="mcq1" class="page">
+  <div class="mcq-header">
+    <div>
+      <div class="section-title" style="margin-bottom:4px">🧠 MCQ – Chapter 1: Rheology</div>
+      <p style="color:var(--muted); font-size:13px">Exam-style questions covering all topics</p>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <div class="score-badge" id="score1">Score: 0 / 0</div>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <div style="font-size:11px;color:var(--muted);font-weight:700">Progress</div>
+        <div class="progress-bar-wrap"><div class="progress-bar" id="pb1" style="width:0%"></div></div>
+      </div>
+      <button class="reset-btn" style="margin:0;padding:8px 18px;font-size:12px" onclick="resetMCQ('mcq1')">Reset ↺</button>
+    </div>
+  </div>
+  <div id="mcq1-questions"></div>
+</div>
+
+<!-- ════════════════ MCQ 2 – ADSORPTION ════════════════ -->
+<div id="mcq2" class="page">
+  <div class="mcq-header">
+    <div>
+      <div class="section-title" style="margin-bottom:4px">🧠 MCQ – Chapter 2: Adsorption</div>
+      <p style="color:var(--muted); font-size:13px">Exam-style questions covering all topics</p>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <div class="score-badge" id="score2">Score: 0 / 0</div>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <div style="font-size:11px;color:var(--muted);font-weight:700">Progress</div>
+        <div class="progress-bar-wrap"><div class="progress-bar" id="pb2" style="width:0%"></div></div>
+      </div>
+      <button class="reset-btn" style="margin:0;padding:8px 18px;font-size:12px" onclick="resetMCQ('mcq2')">Reset ↺</button>
+    </div>
+  </div>
+  <div id="mcq2-questions"></div>
+</div>
+
+</main>
+
+<script>
+// ── Navigation ──
+function showPage(id, btnId, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ── MCQ Data ──
+const rheologyQs = [
+  {
+    q: "Rheology is defined as the science that deals with:",
+    opts: ["Flow of liquids and deformation of semisolids","Chemical reactions of pharmaceutical products","Absorption of drugs through membranes","Stability of drug formulations"],
+    ans: 0,
+    exp: "Rheology = flow of liquids + deformation of semisolids. The word comes from Greek: rheo (to flow) + logos (science)."
+  },
+  {
+    q: "The term 'Rheology' is derived from the Greek word 'rheo' which means:",
+    opts: ["To measure","To flow","To deform","To resist"],
+    ans: 1,
+    exp: "'Rheo' = to flow, 'logos' = science. So rheology = science of flow."
+  },
+  {
+    q: "Viscosity is defined as:",
+    opts: ["Ability of liquid to flow","Resistance of a fluid to flow","Rate of shear in a liquid","Fluidity of a liquid"],
+    ans: 1,
+    exp: "Viscosity = resistance to flow. More viscous = harder to flow. Fluidity is the opposite (ability to flow)."
+  },
+  {
+    q: "The unit of viscosity is:",
+    opts: ["Stoke","Poise","Newton","Pascal·second only"],
+    ans: 1,
+    exp: "Dynamic viscosity unit = Poise (or centipoise, cp). 1 Poise = 100 centipoise. Stoke is for kinematic viscosity."
+  },
+  {
+    q: "Fluidity (φ) is related to viscosity (η) by:",
+    opts: ["φ = η × 2","φ = η²","φ = 1/η","φ = η + 1"],
+    ans: 2,
+    exp: "Fluidity = reciprocal of viscosity: φ = 1/η. Higher viscosity = lower fluidity."
+  },
+  {
+    q: "For Newtonian liquids, a single determination of viscosity is:",
+    opts: ["Not sufficient at all","Sufficient to characterize flow properties","Only sufficient at high shear rates","Only sufficient at low temperatures"],
+    ans: 1,
+    exp: "For Newtonian liquids, viscosity is CONSTANT — single-point measurement is enough. This is a KEY exam point!"
+  },
+  {
+    q: "Which of the following is NOT a Newtonian liquid?",
+    opts: ["Water","Glycerin","Flocculated suspension at high concentration","Diluted suspension"],
+    ans: 2,
+    exp: "Concentrated flocculated suspensions are Non-Newtonian (plastic flow). Diluted suspensions, water, glycerin, oils are Newtonian."
+  },
+  {
+    q: "In Newton's law of flow: F'/A = η × dv/dr, the term 'dv/dr' represents:",
+    opts: ["Shearing stress","Shearing rate (G)","Viscosity","Fluidity"],
+    ans: 1,
+    exp: "Shearing Rate G = dv/dr = velocity difference (dv) between two layers separated by distance (dr). Unit: sec⁻¹."
+  },
+  {
+    q: "What is the relationship between viscosity and temperature for liquids?",
+    opts: ["Directly proportional","Inversely proportional","No relationship","Constant"],
+    ans: 1,
+    exp: "Higher temperature → lower viscosity for liquids. Described by Arrhenius equation: η = A·e^(Ev/RT)."
+  },
+  {
+    q: "In the Arrhenius equation for viscosity (η = A·e^(Ev/RT)), 'Ev' represents:",
+    opts: ["Viscosity at infinite temperature","Activation energy required to initiate flow","Gas constant","A constant depending on MW"],
+    ans: 1,
+    exp: "Ev = activation energy for flow. Higher Ev = more energy needed to make molecules move past each other."
+  },
+  {
+    q: "Kinematic viscosity equals:",
+    opts: ["η × ρ","η / ρ","η + ρ","1 / (η × ρ)"],
+    ans: 1,
+    exp: "Kinematic viscosity (s) = dynamic viscosity (η) / density (ρ). Unit: Stoke or centistoke."
+  },
+  {
+    q: "Relative viscosity (ηr) is defined as:",
+    opts: ["η of solution / η of pure solvent (water)","η + η₀","η × η₀","ηr - 1"],
+    ans: 0,
+    exp: "Relative viscosity ηr = η/η₀ where η₀ is usually the viscosity of water. It is unitless."
+  },
+  {
+    q: "Specific viscosity (ηsp) equals:",
+    opts: ["ηr + 1","ηr × η₀","ηr − 1","1 − ηr"],
+    ans: 2,
+    exp: "Specific viscosity ηsp = ηr − 1. It is also unitless."
+  },
+  {
+    q: "The Rheogram of a Newtonian liquid is:",
+    opts: ["A curve starting from origin","A straight line starting from origin with constant slope","A straight line that does not start from origin","A sigmoidal curve"],
+    ans: 1,
+    exp: "Newtonian rheogram = straight line through origin. Slope = fluidity (φ = 1/η). Constant throughout all shear rates."
+  },
+  {
+    q: "Bingham bodies (plastic materials) are characterized by:",
+    opts: ["A rheogram starting from the origin","No yield value","A yield value (f) below which no flow occurs","Constant viscosity"],
+    ans: 2,
+    exp: "Plastic materials have a YIELD VALUE (f). No flow occurs below this. It represents the force needed to break van der Waals forces between flocculated particles."
+  },
+  {
+    q: "The equation for plastic viscosity (U) is:",
+    opts: ["U = F/G","U = (F-f)/G","U = F/(G-f)","U = G/F"],
+    ans: 1,
+    exp: "Plastic viscosity U = (F − f) / G. The 'f' is subtracted because flow only occurs for forces ABOVE the yield value."
+  },
+  {
+    q: "The most suitable example for plastic (Bingham) flow is:",
+    opts: ["Solutions of sodium CMC","Deflocculated suspension with 50% solids","Flocculated suspension","Glycerin"],
+    ans: 2,
+    exp: "Flocculated suspension is the classic example of plastic flow. Particles are linked by van der Waals forces, requiring a yield value to initiate flow."
+  },
+  {
+    q: "In pseudo-plastic flow, viscosity changes when shear is applied by:",
+    opts: ["Increasing","Remaining constant","Decreasing","First increasing then decreasing"],
+    ans: 2,
+    exp: "Pseudo-plastic = shear THINNING. Higher shear → long-chain polymer molecules align in flow direction → lower viscosity."
+  },
+  {
+    q: "Which of these is a typical example of pseudo-plastic flow?",
+    opts: ["Glycerin","Solutions of gum tragacanth or methylcellulose","Deflocculated suspension with 50% solids","Water"],
+    ans: 1,
+    exp: "Polymer solutions (gum tragacanth, sodium alginate, methylcellulose, CMC) show pseudo-plastic behavior due to their long-chain structure."
+  },
+  {
+    q: "In Martin's exponential equation F = η'G^N, for pseudo-plastic materials, N is:",
+    opts: ["Equal to 1","Less than 1","Greater than 1","Equal to 0"],
+    ans: 2,
+    exp: "N=1 → Newtonian. N>1 → Pseudo-plastic. N<1 → Dilatant. Remember this!"
+  },
+  {
+    q: "Dilatant systems are also called:",
+    opts: ["Shear-thinning systems","Shear-thickening systems","Bingham bodies","Pseudo-plastic systems"],
+    ans: 1,
+    exp: "Dilatant = shear THICKENING. More shear = more viscosity. Opposite of pseudo-plastic."
+  },
+  {
+    q: "In dilatant systems, when shear stress is removed:",
+    opts: ["The system remains solid","The system returns to its original fluidity","Viscosity increases further","The system becomes a gel permanently"],
+    ans: 1,
+    exp: "Dilatant behavior is REVERSIBLE. When stress is removed, the system returns to its original fluidity."
+  },
+  {
+    q: "The classic example of dilatant flow is:",
+    opts: ["Flocculated suspension","Polymer solutions","Deflocculated suspension with ≥50% solids","Water"],
+    ans: 2,
+    exp: "Deflocculated suspension with 50% or more solids is the classic dilatant example. At high solid content, particles pack closely and the system thickens under shear."
+  },
+  {
+    q: "In dilatant flow, why should high-speed mixers be used cautiously?",
+    opts: ["They generate too much heat","High shear causes the system to thicken and set up as a firm paste","They reduce particle size too much","They introduce air bubbles"],
+    ans: 1,
+    exp: "At high shear, dilatant systems expand (dilate), void volume increases, vehicle no longer lubricates particles, and the system sets up as a firm paste — processing becomes impossible!"
+  },
+  {
+    q: "Thixotropy was first described by:",
+    opts: ["Newton in 1700","Peterfi in 1927","Bingham in 1920","Arrhenius in 1889"],
+    ans: 1,
+    exp: "Peterfi (1927) first used the term 'Thixotropy' from Greek: thixis (stirring/shaking) + trepo (turning/changing)."
+  },
+  {
+    q: "Thixotropy is defined as:",
+    opts: ["Irreversible transformation of sol to gel only","Reversible isothermal transformation of gel to sol to gel","Increase in viscosity with time","Decrease in viscosity with temperature"],
+    ans: 1,
+    exp: "Thixotropy = reversible isothermal transformation: gel → sol (when shear applied) → gel (when shear removed, over time)."
+  },
+  {
+    q: "The hysteresis loop in thixotropic materials represents:",
+    opts: ["The difference in density between up and down curves","The energy needed to break down the gel structure","The activation energy for flow","The yield value"],
+    ans: 1,
+    exp: "A wider hysteresis loop = more energy needed to rebuild structure = more time required for recovery. The area of the loop = work of thixotropic breakdown."
+  },
+  {
+    q: "Anti-thixotropy (irreversible thixotropy) means:",
+    opts: ["Sol returns to gel faster than normal","Gel → sol, but sol NEVER returns to gel on standing","Gel structure cannot be broken","Viscosity increases with shear"],
+    ans: 1,
+    exp: "Anti-thixotropy: gel → sol by shear, but when stress removed, sol NEVER comes back to gel. Example: gel from high M.wt. polysaccharides."
+  },
+  {
+    q: "Penicillin G suspension 40-70% w/v uses thixotropy for:",
+    opts: ["Faster absorption","Depot action with slow drug release","Better taste","Preventing sedimentation only"],
+    ans: 1,
+    exp: "Dissolved (gel) → shaken and withdrawn by syringe (sol) → injected into muscle (gel again) → slow release = depot action. Brilliant pharmaceutical use of thixotropy!"
+  },
+  {
+    q: "The Ostwald U-tube viscometer is suitable for:",
+    opts: ["Non-Newtonian systems only","Light Newtonian liquids only","Both Newtonian and Non-Newtonian","Semi-solid preparations"],
+    ans: 1,
+    exp: "Ostwald (capillary) viscometer = for light Newtonian liquids only. Equation: η₁/η₂ = ρ₁t₁/ρ₂t₂."
+  },
+  {
+    q: "The falling sphere viscometer (Höppler) measures viscosity based on:",
+    opts: ["Torque required to rotate","Time for a ball to fall through liquid (Stoke's law)","Pressure difference","Capillary flow time"],
+    ans: 1,
+    exp: "Stoke's law: η = d²g(ρs−ρf)/18v OR η = t(Sb−Sf)B. Suitable for Newtonian liquids, 0.5–200,000 poise, falling time >30 sec."
+  },
+  {
+    q: "Which viscometer is most suitable for Non-Newtonian systems?",
+    opts: ["Ostwald's capillary viscometer","Falling sphere viscometer","Rotational viscometer","None of the above"],
+    ans: 2,
+    exp: "Rotational viscometers can operate at various shear rates, making them ideal for Non-Newtonian systems. They include cup & bob and cone & plate types."
+  },
+  {
+    q: "In a Couette-type cup and bob viscometer:",
+    opts: ["The bob rotates and the cup is fixed","The cup rotates, causing the sample to rotate, and then the bob to move","Both cup and bob rotate together","Only the sample moves"],
+    ans: 1,
+    exp: "Couette type: CUP rotates → sample rotates → bob moves with certain torque. Example: MacMichael viscometer."
+  },
+  {
+    q: "Which is an advantage of the cone and plate viscometer over the cup and bob viscometer?",
+    opts: ["Larger sample required","Easier to clean and requires smaller sample","Better for liquids than semi-solids","Creates non-uniform shear"],
+    ans: 1,
+    exp: "Cone & plate advantages: small sample, easily cleaned, suitable for semi-solids, small space = constant uniform shear. Equation: η = CT/V."
+  },
+  {
+    q: "The equation for cup and bob viscometer is:",
+    opts: ["η = CT/V","η = KT/Ω","η = F/G","η = ρ₁t₁/ρ₂t₂"],
+    ans: 1,
+    exp: "Cup & bob: η = KT/Ω (T=torque, Ω=rpm, K=device constant). Cone & plate: η = CT/V (C=device constant, V=rpm)."
+  },
+  {
+    q: "In a rheogram, what does the slope of the curve represent for a Newtonian liquid?",
+    opts: ["Viscosity","Yield value","Fluidity (φ = 1/η)","Shearing stress"],
+    ans: 2,
+    exp: "Slope of F vs G rheogram for Newtonian = G/F = fluidity = 1/η. The steeper the slope, the lower the viscosity."
+  },
+  {
+    q: "All of the following are Non-Newtonian flow types EXCEPT:",
+    opts: ["Plastic (Bingham)","Pseudo-plastic","Dilatant","Newtonian"],
+    ans: 3,
+    exp: "Newtonian is a classification on its own. The three Non-Newtonian types are: Plastic, Pseudo-plastic, and Dilatant."
+  },
+  {
+    q: "Which type of flow is considered 'shear-thinning'?",
+    opts: ["Dilatant only","Newtonian","Both plastic and pseudo-plastic","Dilatant and Newtonian"],
+    ans: 2,
+    exp: "Shear-thinning = viscosity DECREASES with increasing shear. Both plastic AND pseudo-plastic are shear-thinning. Dilatant is shear-thickening."
+  },
+  {
+    q: "The Searle-type rotational viscometer is characterized by:",
+    opts: ["The cup rotating while the bob is fixed","The bob rotating while rpm is measured by sensors in the cup","Both rotating at same speed","A cone instead of a bob"],
+    ans: 1,
+    exp: "Searle type: BOB rotates with certain power → sample rotates → rpm measured by sensors in cup. Examples: Brookfield, Roto-visco viscometer."
+  },
+  {
+    q: "A disadvantage of the cup and bob viscometer is:",
+    opts: ["Too small a sample","Constant shear throughout","Frictional heat may arise and affect viscosity","Easy to clean"],
+    ans: 2,
+    exp: "Cup & bob disadvantages: large sample, difficult cleaning, non-uniform shear (large space between cup & bob), frictional heat can develop and falsely affect viscosity measurements."
+  }
+];
+
+const adsorptionQs = [
+  {
+    q: "Adsorption is defined as:",
+    opts: ["Drug entering the bulk phase of tissues","Accumulation of a substance at the surface/interface between two immiscible phases","Drug passing through cell membranes","Release of drug from dosage form"],
+    ans: 1,
+    exp: "Adsorption = accumulation at SURFACE/INTERFACE. It forms a molecular or atomic film. Absorption = entering the bulk phase."
+  },
+  {
+    q: "The solid on which adsorption occurs is called:",
+    opts: ["Adsorbate","Adsorbent","Sorbate","Substrate only"],
+    ans: 1,
+    exp: "Adsorbent = the solid surface (usually porous with large surface area). Adsorbate = the substance being adsorbed."
+  },
+  {
+    q: "Which of the following is the correct definition of adsorbate?",
+    opts: ["The solid surface on which adsorption occurs","The substance (gas, vapor, liquid, or solid) that is adsorbed","The process of removing adsorbate from surface","The heat released during adsorption"],
+    ans: 1,
+    exp: "Adsorbate is the substance that gets adsorbed onto the adsorbent surface. It can be a gas, vapor, liquid, or solid."
+  },
+  {
+    q: "The reverse process of adsorption is called:",
+    opts: ["Absorption","Adsorption","Desorption","Sorption"],
+    ans: 2,
+    exp: "Desorption = removal of adsorbate from the adsorbent. For physisorption, this is achieved by increasing temperature or reducing pressure."
+  },
+  {
+    q: "Physisorption (physical adsorption) involves:",
+    opts: ["Covalent bonds","Ionic bonds","Van der Waals (intermolecular) forces","Valence forces similar to chemical compounds"],
+    ans: 2,
+    exp: "Physisorption uses weak van der Waals forces. No significant change in electronic orbital patterns. Hence reversible and non-specific."
+  },
+  {
+    q: "Chemisorption (chemical adsorption) is characterized by:",
+    opts: ["Weak van der Waals forces, reversible, multilayer","Valence forces, irreversible, monolayer","Rapid rate, low heat, non-specific","Non-saturable surface coverage"],
+    ans: 1,
+    exp: "Chemisorption: valence forces (like chemical bonds), irreversible, monolayer ONLY, high heat of adsorption, specific, saturable."
+  },
+  {
+    q: "Activated charcoal adsorbing toxins from the GI tract is an example of:",
+    opts: ["Chemisorption","Physisorption","Desorption","Absorption"],
+    ans: 1,
+    exp: "Activated charcoal adsorbs toxins, gases, viruses, and bad drugs via physisorption (weak van der Waals forces). Reversible and non-specific."
+  },
+  {
+    q: "Regarding physisorption, which is CORRECT?",
+    opts: ["It is irreversible","It forms a monolayer only","Temperature increase increases physisorption","Physisorption is inversely related to temperature (exothermic)"],
+    ans: 3,
+    exp: "Physisorption is exothermic → increasing temperature DECREASES physisorption (Le Chatelier's principle). It is reversible and forms multilayers."
+  },
+  {
+    q: "The rate of chemisorption increases with:",
+    opts: ["Decreasing temperature","Increasing temperature (requires activation energy Ea)","Decreasing pressure","Decreasing surface area"],
+    ans: 1,
+    exp: "Chemisorption needs activation energy (Ea) to form chemical bonds. Higher temperature provides more energy → increases rate. Opposite of physisorption!"
+  },
+  {
+    q: "Bentonite clay showing cation exchange (water deionization) is an example of:",
+    opts: ["Physisorption","Chemisorption","Thixotropy","Desorption"],
+    ans: 1,
+    exp: "Bentonite shows cation exchange at its surface, involving valence forces = chemisorption. Also: water deionization with resin."
+  },
+  {
+    q: "According to Lundelius' Rule:",
+    opts: ["Higher solubility → more adsorption","Higher solubility → less adsorption","Solubility has no effect on adsorption","Lower solubility → less adsorption"],
+    ans: 1,
+    exp: "Lundelius' Rule: higher solubility of adsorbate → lower adsorption. The adsorbate prefers to stay in solution rather than stick to the surface."
+  },
+  {
+    q: "Why is adsorption of methylene blue from aqueous solution greater than from ethanol solution?",
+    opts: ["Methylene blue is more soluble in ethanol","Ethanol has higher viscosity","Methylene blue is less soluble in water, so it prefers the surface (Lundelius' Rule)","Water is a better adsorbent"],
+    ans: 2,
+    exp: "Lower solubility in water → less affinity for solvent → more affinity for adsorbent surface → more adsorption. Lundelius' Rule in action."
+  },
+  {
+    q: "The effect of pH on adsorption is that:",
+    opts: ["pH has no effect on adsorption","Non-dissociated molecules adsorb BETTER than their ions","Ions adsorb better than non-dissociated molecules","Adsorption always increases with pH"],
+    ans: 1,
+    exp: "Non-dissociated (unionized) molecules have lower water affinity than ions, so they adsorb more readily. Amphiphilic compounds adsorb most at their isoelectric point."
+  },
+  {
+    q: "An adsorption isotherm is a plot of:",
+    opts: ["Temperature vs time","Amount adsorbed vs concentration/pressure at CONSTANT temperature","Viscosity vs shear rate","Amount adsorbed vs temperature"],
+    ans: 1,
+    exp: "Isotherm = at constant temperature. It shows the relationship between amount adsorbed (x/m) and equilibrium concentration or pressure of adsorbate."
+  },
+  {
+    q: "The Langmuir isotherm (Type I) is characterized by:",
+    opts: ["Sigmoidal shape with multilayer adsorption","Horizontal plateau after rapid initial adsorption, monolayer, chemisorption","A straight line on log-log plot","Reversible rapid adsorption"],
+    ans: 1,
+    exp: "Langmuir (Type I): rapid rise → horizontal plateau (saturation). Monolayer only. Chemisorption. Microporous materials. Example: water vapor on molecular sieves."
+  },
+  {
+    q: "The Freundlich isotherm equation is:",
+    opts: ["Y = K/C^n","Y = x/m = KC^(1/n)","Log Y = log C × K","Y = A·e^(K/C)"],
+    ans: 1,
+    exp: "Freundlich: Y = x/m = KC^(1/n) = KP^(1/n). Valid only at LOW to MODERATE concentrations/pressures. Log form: log Y = log K + (1/n)log C."
+  },
+  {
+    q: "In the Freundlich isotherm log plot (log Y vs log C), the slope equals:",
+    opts: ["log K","1/n","K","n"],
+    ans: 1,
+    exp: "Slope of log Y vs log C = 1/n. Y-intercept = log K. This gives you both Freundlich constants from the plot."
+  },
+  {
+    q: "The BET isotherm is characterized by:",
+    opts: ["Monolayer chemisorption only","Sigmoidal shape, physisorption, multilayer formation","Horizontal plateau at low pressures","No relationship with pressure"],
+    ans: 1,
+    exp: "BET (Brunauer-Emmett-Teller): sigmoidal shape, multilayers, physisorption, for non-porous solids. Macro-porous solids (pore diameter >50 nm). Type II isotherm."
+  },
+  {
+    q: "How does increasing the surface area of the adsorbent affect adsorption?",
+    opts: ["Decreases adsorption","Has no effect","Increases adsorption","Unpredictable effect"],
+    ans: 2,
+    exp: "More surface area → more active sites available → more adsorption. Surface area increased by: size reduction (finely divided particles) or porosity."
+  },
+  {
+    q: "Which isotherm type is used to determine the surface area of pharmaceutical powders?",
+    opts: ["Langmuir only","Freundlich only","BET isotherm","None of the above"],
+    ans: 2,
+    exp: "BET isotherm is the standard method for measuring specific surface area of powders. This is a key pharmaceutical application."
+  },
+  {
+    q: "Amphiphilic compounds show maximum adsorption at:",
+    opts: ["High pH","Low pH","Their isoelectric point (zwitter ion)","Any pH equally"],
+    ans: 2,
+    exp: "At isoelectric point, solubility of amphiphilic compound is MINIMUM (zwitter ion form). Lower solubility → more adsorption (Lundelius' Rule)."
+  },
+  {
+    q: "Regarding the surface area of adsorbents, which statement is CORRECT?",
+    opts: ["Non-porous materials have higher surface area than porous","Porous materials have higher adsorption power","Surface area does not affect adsorption","Larger particles have more surface area"],
+    ans: 1,
+    exp: "Porous materials have cracks/pores that dramatically increase surface area → higher adsorption power. Finely divided (smaller) particles also have more surface area."
+  },
+  {
+    q: "In Langmuir isotherm, the heat of adsorption is:",
+    opts: ["Variable depending on surface coverage","Increases with surface coverage","Independent of surface coverage (constant)","Zero"],
+    ans: 2,
+    exp: "One of Langmuir's key assumptions: heat of adsorption is INDEPENDENT of surface coverage. All active sites are equivalent (uniform surface)."
+  },
+  {
+    q: "Adsorption of non-electrolytes is affected by pH:",
+    opts: ["Greatly — increases with increasing pH","Greatly — decreases with increasing pH","Not greatly affected by pH","Only affected at extreme pH values"],
+    ans: 2,
+    exp: "Non-electrolytes don't dissociate, so they are NOT greatly affected by pH changes. pH mainly affects adsorption through changes in ionization state."
+  },
+  {
+    q: "The main difference between adsorption (Type I) and adsorption (Type II) isotherms is:",
+    opts: ["Type I = multilayer, Type II = monolayer","Type I = monolayer (chemisorption), Type II = multilayer (physisorption)","Both are identical in shape","Type II has a yield value"],
+    ans: 1,
+    exp: "Type I (Langmuir) = monolayer chemisorption, horizontal plateau. Type II (Freundlich/BET) = multilayer physisorption, sigmoidal or increasing curve."
+  },
+  {
+    q: "Which pharmaceutical application uses adsorption to remove colored impurities?",
+    opts: ["Tablet coating","Activated charcoal as decolorizing agent","Emulsification","Crystallization"],
+    ans: 1,
+    exp: "Activated charcoal physically adsorbs (physisorption) colored impurities from solutions. This is called decolorization — a classic pharmaceutical application."
+  },
+  {
+    q: "The Freundlich isotherm is NOT applicable at:",
+    opts: ["Low concentrations","Moderate concentrations","High concentrations","Low pressures"],
+    ans: 2,
+    exp: "Freundlich equation Y = KC^(1/n) breaks down at HIGH concentrations/pressures. It is only valid at low to moderate values of C and P."
+  },
+  {
+    q: "Why does adsorption occur at solid surfaces?",
+    opts: ["Solid surfaces are chemically reactive","Surface atoms have bonding deficiency (not fully surrounded) → tend to bond available molecules","Solid surfaces have high temperature","Solids have low density"],
+    ans: 1,
+    exp: "Surface atoms are NOT completely surrounded by other atoms → bonding deficiency → energetically favorable to adsorb whatever is available → lowers surface energy."
+  },
+  {
+    q: "Increasing gas pressure will:",
+    opts: ["Decrease adsorption of gas","Increase adsorption of gas","Have no effect on adsorption","Cause desorption"],
+    ans: 1,
+    exp: "Higher gas pressure → more gas molecules per unit volume → more collisions with surface → more adsorption. Directly proportional relationship."
+  },
+  {
+    q: "Adsorption chromatography works on the principle of:",
+    opts: ["Differential solubility","Differential adsorption of compounds on a stationary solid phase","Differential boiling points","Differential molecular size"],
+    ans: 1,
+    exp: "Adsorption chromatography: compounds have different affinity for the adsorbent (stationary phase) → separated based on differential adsorption. Key pharmaceutical analytical technique."
+  },
+  {
+    q: "For chemisorption, which is INCORRECT?",
+    opts: ["It forms a monolayer","It involves valence forces","It is irreversible","It is non-specific (non-selective)"],
+    ans: 3,
+    exp: "Chemisorption IS specific/selective — it involves specific valence bonds, specific active sites. Non-specific/non-selective is a property of PHYSISORPTION."
+  }
+];
+
+// ── Build MCQ HTML ──
+function buildMCQ(questions, containerId, prefix) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = '';
+  questions.forEach((q, i) => {
+    const letters = ['A','B','C','D'];
+    const optsHTML = q.opts.map((opt, j) => `
+      <button class="option-btn" onclick="selectAnswer('${prefix}',${i},${j})" id="${prefix}-${i}-${j}">
+        <span class="opt-letter">${letters[j]}</span>
+        ${opt}
+      </button>
+    `).join('');
+
+    container.innerHTML += `
+      <div class="question-card" id="${prefix}-card-${i}">
+        <div class="q-num">Question ${i+1} of ${questions.length}</div>
+        <div class="q-text">${q.q}</div>
+        <div class="options">${optsHTML}</div>
+        <div class="explanation" id="${prefix}-exp-${i}">
+          <strong>Explanation:</strong> ${q.exp}
+        </div>
+      </div>
+    `;
+  });
+}
+
+// ── State ──
+const mcqState = {
+  mcq1: { answered: {}, correct: 0 },
+  mcq2: { answered: {}, correct: 0 }
+};
+
+function selectAnswer(prefix, qIndex, chosenIndex) {
+  const state = mcqState[prefix];
+  if (state.answered[qIndex] !== undefined) return;
+
+  const questions = prefix === 'mcq1' ? rheologyQs : adsorptionQs;
+  const correct = questions[qIndex].ans;
+  state.answered[qIndex] = chosenIndex;
+
+  const card = document.getElementById(`${prefix}-card-${qIndex}`);
+  card.classList.add('answered');
+
+  // Disable all buttons
+  for (let j = 0; j < 4; j++) {
+    const btn = document.getElementById(`${prefix}-${qIndex}-${j}`);
+    if (btn) btn.disabled = true;
+  }
+
+  const chosenBtn = document.getElementById(`${prefix}-${qIndex}-${chosenIndex}`);
+  const correctBtn = document.getElementById(`${prefix}-${qIndex}-${correct}`);
+
+  if (chosenIndex === correct) {
+    chosenBtn.classList.add('correct');
+    state.correct++;
+  } else {
+    chosenBtn.classList.add('wrong');
+    correctBtn.classList.add('show-correct');
+  }
+
+  document.getElementById(`${prefix}-exp-${qIndex}`).classList.add('show');
+  updateScore(prefix, questions.length);
+}
+
+function updateScore(prefix, total) {
+  const state = mcqState[prefix];
+  const answered = Object.keys(state.answered).length;
+  const correct = state.correct;
+  document.getElementById(`score${prefix.slice(-1)}`).textContent = `Score: ${correct} / ${answered}`;
+  const pct = (answered / total) * 100;
+  document.getElementById(`pb${prefix.slice(-1)}`).style.width = pct + '%';
+}
+
+function resetMCQ(prefix) {
+  mcqState[prefix] = { answered: {}, correct: 0 };
+  const questions = prefix === 'mcq1' ? rheologyQs : adsorptionQs;
+  buildMCQ(questions, `${prefix}-questions`, prefix);
+  document.getElementById(`score${prefix.slice(-1)}`).textContent = 'Score: 0 / 0';
+  document.getElementById(`pb${prefix.slice(-1)}`).style.width = '0%';
+}
+
+// ── Init ──
+buildMCQ(rheologyQs, 'mcq1-questions', 'mcq1');
+buildMCQ(adsorptionQs, 'mcq2-questions', 'mcq2');
+</script>
+</body>
+</html>
